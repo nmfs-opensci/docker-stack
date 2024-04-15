@@ -1,0 +1,17 @@
+name: jupyter
+channels:
+  - conda-forge
+dependencies:
+## These are needed for jupyterhub functioning
+  - jupyterhub-singleuser
+  - jupyter-server-proxy
+  - ipywidgets
+  - jupyterlab>4
+  - jupyterlab-git
+  - jupyterlab-favorites
+  - jupyter-resource-usage
+  - nb_conda_kernels
+#  - conda-lock
+## VS code  
+#  - code-server >=3.2
+#  - jupyter-vscode-proxy

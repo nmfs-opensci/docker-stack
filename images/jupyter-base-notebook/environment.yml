@@ -1,0 +1,18 @@
+name: basic
+channels:
+  - conda-forge
+dependencies:
+## ADD your packages here
+## jupyter base notebook image will already have a vrs of Python
+## ADD
+## These are needed for good jupyterhub functioning
+  - jupyter-server-proxy
+  - jupyter-vscode-proxy
+  - ipywidgets
+  - jupyterlab>4
+  - jupyterhub-singleuser
+  - jupyterlab-git
+  - conda-lock
+  - code-server >=3.2
+platforms:
+  - linux-64

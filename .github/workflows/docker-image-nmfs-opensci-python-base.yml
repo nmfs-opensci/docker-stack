@@ -1,0 +1,34 @@
+name: Docker Image CI nmfs-opensci-python-base
+env:
+  IMAGE_NAME: nmfs-opensci-python-base
+  IMAGE_TAG: latest
+on:
+  workflow_dispatch: null
+  push:
+    branches: main
+    # main path plus the nmfs-opensci-python-base if that is used.
+    paths: 
+      - 'images/nmfs-opensci-python-base/**'
+      - '.github/workflows/docker-image-nmfs-opensci-python-base.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'nmfs-opensci/container-images'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the Docker image
+        if: github.repository == 'nmfs-opensci/container-images'
+        run: |
+          docker build images/$IMAGE_NAME -f images/$IMAGE_NAME/Dockerfile  --tag ghcr.io/nmfs-opensci/container-images/$IMAGE_NAME:$IMAGE_TAG
+      - name: Publish
+        if: github.repository == 'nmfs-opensci/container-images'
+        run: |
+          docker push ghcr.io/nmfs-opensci/container-images/$IMAGE_NAME:$IMAGE_TAG
+

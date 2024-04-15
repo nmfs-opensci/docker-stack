@@ -1,0 +1,11 @@
+name: openscapes
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - jupyter-rsession-proxy
+  - notebook
+  - jupyterlab
+  - jupyterhub
+platforms:
+  - linux-64

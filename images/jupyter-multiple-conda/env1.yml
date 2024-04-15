@@ -1,0 +1,6 @@
+name: jupyter
+channels:
+  - conda-forge
+dependencies:
+  - cmocean
+  - ipykernel
