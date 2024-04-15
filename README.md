@@ -1,22 +1,13 @@
-[2]: <https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Fnmfs-opensci-python-base/latest_tag?color=%2344cc11&ignore=&label=version&trim=>
-[3]: <https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Fnmfs-opensci-python-base/size?color=%2344cc11&tag=latest&label=image+size&trim=>
-
 # NMFS Open Science Docker Stack
 
-These are a collection of container images to provide standardized environments for Python and R computing build off the Rocker, [Pangeo](https://github.com/pangeo-data/pangeo-docker-images) and Jupyter base images. This repo holds the (mostly) stable docker stack for specific pipelines used in Fisheries. Want to help develop the docker stack or see our gallery of other sandbox images? Go to [nmfs-opensci/container-images](https://github.com/nmfs-opensci/container-images) which is our sandbox and development location.
-
-Watch this video from Yuvi Panda (Jupyter Project): [Why using a container image?](https://www.youtube.com/watch?v=qgLPpULvBbQ). Read about the Rocker Project in the R Project Journal [article](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) by Carl Boettiger and Dirk Eddelbuettel.
+These are a collection of container images to provide standardized environments for Python and R computing build off the Rocker, [Pangeo](https://github.com/pangeo-data/pangeo-docker-images) and Jupyter base images. This repo holds the (mostly) stable docker stack for specific pipelines used in Fisheries. Want to help develop the docker stack or see our gallery of other sandbox images? Go to [nmfs-opensci/container-images](https://github.com/nmfs-opensci/container-images) which is our sandbox and development location. Why use a container? Watch this video from Yuvi Panda (Jupyter Project) [video](https://www.youtube.com/watch?v=qgLPpULvBbQ) and read about the Rocker Project in the R Project Journal [article](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) by Carl Boettiger and Dirk Eddelbuettel.
 
 How can I use container images? JupyterHubs, Codespaces, GitLab, Binder, VSCode on your laptop (need Docker or Podman installed). See instructions below.
 
-nmfs-opensci-python-base [![2] ![3]](https://github.com/nmfs-opensci/container-images/pkgs/container/nmfs-opensci-python-base)
-
-Images are hosted on [ghcr.io](https://ghcr.io/nmfs-opensci)
-
-| Image           | Description                                   |  Size | Link |
-|-----------------|-----------------------------------------------|--------------|-------------|
-| arcgis          | For using ArcGIS within Jupyter Lab           | ![](https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Fnmfs-opensci-python-base/size?color=%2344cc11&tag=latest&label=image+size&trim=) | 
-
+| Image           | Description                                   |  Size | Link | Dockerfile |
+|-----------------|-----------------------------------------------|-------|------|------------|
+| nmfs-opensci-python-base   | Geospatial Python           | ![](https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Fnmfs-opensci-python-base/size?color=%2344cc11&tag=latest&label=image+size&trim=) | [nmfs-opensci-python-base](https://github.com/nmfs-opensci/container-images/pkgs/container/container-images%2Fnmfs-opensci-python-base) | [Dockerfile](https://github.com/nmfs-opensci/container-images/tree/main/images/nmfs-opensci-python-base)
+| arcgis          | For using ArcGIS within Jupyter Lab           | ![](https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Farcgis/size?color=%2344cc11&tag=latest&label=image+size&trim=) | [arcgis](https://github.com/nmfs-opensci/container-images/pkgs/container/container-images%2Farcgis) | [Dockerfile](https://github.com/nmfs-opensci/container-images/tree/main/images/arcgis)
 
 *Click on the image name in the table above for a current list of installed packages and versions*
 
