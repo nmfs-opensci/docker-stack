@@ -3,30 +3,23 @@
 
 # NMFS Open Science Docker Stack
 
+These are a collection of container images to provide standardized environments for Python and R computing build off the Rocker, [Pangeo](https://github.com/pangeo-data/pangeo-docker-images) and Jupyter base images. This repo holds the (mostly) stable docker stack for specific pipelines used in Fisheries. Want to help develop the docker stack or see our gallery of other sandbox images? Go to [nmfs-opensci/container-images](https://github.com/nmfs-opensci/container-images) which is our sandbox and development location.
+
+Watch this video from Yuvi Panda (Jupyter Project): [Why using a container image?](https://www.youtube.com/watch?v=qgLPpULvBbQ). Read about the Rocker Project in the R Project Journal [article](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) by Carl Boettiger and Dirk Eddelbuettel.
+
+How can I use container images? JupyterHubs, Codespaces, GitLab, Binder, VSCode on your laptop (need Docker or Podman installed). See instructions below.
+
 nmfs-opensci-python-base [![2] ![3]](https://github.com/nmfs-opensci/container-images/pkgs/container/nmfs-opensci-python-base)
 
-These are a collection of container images to provide standardized environments for Python and R computing. See the wiki for discussion of the images. Want to contribute? Put in a pull request or if you are from NOAA Fisheries, reach out to Eli Holmes to be added to the repository.
+Images are hosted on [ghcr.io](https://ghcr.io/nmfs-opensci)
 
-How can I use container images? JupyterHubs, Codespaces, GitLab, Binder, VSCode on your laptop (need Docker or Podman installed). We are working on templates to show you how to use these in a Codespace to add a computational environment right to your Codespace without building it.
+| Image           | Description                                   |  Size | Link |
+|-----------------|-----------------------------------------------|--------------|-------------|
+| arcgis          | For using ArcGIS within Jupyter Lab           | ![](https://ghcr-badge.egpl.dev/nmfs-opensci/container-images%2Fnmfs-opensci-python-base/size?color=%2344cc11&tag=latest&label=image+size&trim=) | 
 
-## To creating Dockerfiles
 
-These are the main base images. They are variants of the Openscapes images. See `images/coastwatch` and `images/jupyter-base-notebook` for simple examples. Then see the next section on adding images.
+*Click on the image name in the table above for a current list of installed packages and versions*
 
-* R verse `ghcr.io/nmfs-opensci/container-images/py-rocket-base:4.3.3-3.10`
-* Python+R geospatial `ghcr.io/nmfs-opensci/container-images/py-rocket-geospatial:4.3.3-3.10`
-* Python geospatial `openscapes/python`
-
-## To add images to the repository
-
-* Create new dir in `images` directory for your image. Add the Dockerfile there.
-* Create new `build-docker-mynewimage.yml` file in `.github/workflows` folder and make necessary edits in the file. It'll be obvious.
-* Push the changes and the docker image should build. Check the Actions tab to check progress and debug fails.
-* Once the image builds, you'll see it listed under packages in the right nav bar.
-* Create a lock-file for reproducibility
-```
-conda-lock -f environment.yml -p linux-64
-```
 
 ## To run images in a JupyterHub with 'bring your image'
 
@@ -34,7 +27,7 @@ conda-lock -f environment.yml -p linux-64
 * Click on the 'Bring your own image' radio button at bottom
 * Paste in url to your image (or any other image)
 * You will find the urls in the right nav bar under 'Packages'
-* Example `ghcr.io/nmfs-opensci/container-images/jupyter-base-notebook:latest`
+* Example `ghcr.io/nmfs-opensci/jupyter-base-notebook:latest`
 
 ## Run with a JupyterHub
 
@@ -43,12 +36,12 @@ Should work out of the box. Put the url to the image whereever you would use ima
 ## Run with docker
 
 ```
-docker run -p 8888:8888 ghcr.io/nmfs-opensci/container-images/openscapes-rocker:latest
+docker run -p 8888:8888 ghcr.io/nmfs-opensci/jupyter-base-notebook:latest
 ```
 
 On a Mac M2+ with Rosetta emulation turned on in the Docker Desktop settings.
 ```
-docker run --platform linux/amd64 -p 8888:8888 ghcr.io/nmfs-opensci/container-images/openscapes-rocker:latest
+docker run --platform linux/amd64 -p 8888:8888 ghcr.io/nmfs-opensci/jupyter-base-notebook:latest
 ```
 
 In the terminal look for something like and put that in a browser.
@@ -81,7 +74,7 @@ Installation in the Jupyter notebook
 %%shell
 pip install udocker
 udocker --allow-root install
-udocker --allow-root run -p 127.0.0.1:8888:8888 -v -e ghcr.io/nmfs-opensci/container-images/openscapes-rocker:latest
+udocker --allow-root run -p 127.0.0.1:8888:8888 -v -e ghcr.io/nmfs-opensci/jupyter-base-notebook:latest
 ```
 
 Or this? https://stackoverflow.com/questions/62820498/how-to-connect-google-colab-with-localhost-running-docker-image
