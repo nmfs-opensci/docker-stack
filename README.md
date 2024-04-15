@@ -1,6 +1,8 @@
 # NMFS Open Science Docker Stack
 
-## THE DOCKER STACK IS IN ACTIVE DESIGN and DEVELOPMENT (Beta release targeted for June 1, 2024)
+## THE DOCKER STACK IS IN ACTIVE DESIGN and DEVELOPMENT 
+
+### Beta release targeted for June 1, 2024. See the [development repo](https://github.com/nmfs-opensci/container-images)
 
 These are a collection of container images to provide standardized environments for Python and R computing build off the Rocker, [Pangeo](https://github.com/pangeo-data/pangeo-docker-images) and Jupyter base images. This repo holds the (mostly) stable docker stack for specific pipelines used in Fisheries. Want to help develop the docker stack or see our gallery of other sandbox images? Go to [nmfs-opensci/container-images](https://github.com/nmfs-opensci/container-images) which is our sandbox and development location. Why use a container? Watch this video from Yuvi Panda (Jupyter Project) [video](https://www.youtube.com/watch?v=qgLPpULvBbQ) and read about the Rocker Project in the R Project Journal [article](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) by Carl Boettiger and Dirk Eddelbuettel.
 
